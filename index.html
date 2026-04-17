@@ -56,7 +56,6 @@
 
   .serif { font-family: 'DM Serif Display', serif; }
 
-  /* ── NAV ── */
   nav {
     position: sticky; top: 0; z-index: 100;
     background: rgba(255,255,255,0.92);
@@ -110,252 +109,230 @@
   .nav-cta:hover { background: var(--accent-dark); transform: translateY(-1px); }
   .nav-mobile-toggle { display: none; background: none; border: none; cursor: pointer; font-size: 22px; }
 
-  /* ── INTERACTIVE AVAILABILITY CALENDAR ── */
-.availability-shell {
-  display: grid;
-  grid-template-columns: minmax(0, 1.4fr) minmax(300px, 0.9fr);
-  gap: 22px;
-  margin-top: 28px;
-}
-.calendar-card,
-.calendar-sidebar {
-  background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 22px;
-  box-shadow: 0 4px 24px rgba(37,99,235,0.05);
-}
-.calendar-toolbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-bottom: 18px;
-}
-.calendar-nav {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-.calendar-btn {
-  border: 1px solid var(--border);
-  background: white;
-  color: var(--text);
-  border-radius: 10px;
-  padding: 9px 13px;
-  cursor: pointer;
-  font-size: 14px;
-}
-.calendar-btn:hover {
-  border-color: var(--blue-400);
-  color: var(--accent);
-}
-.calendar-month {
-  font-size: 22px;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-}
-.calendar-help {
-  font-size: 13px;
-  color: var(--text-muted);
-}
-.calendar-weekdays,
-.calendar-grid {
-  display: grid;
-  grid-template-columns: repeat(7, minmax(0, 1fr));
-  gap: 10px;
-}
-.calendar-weekdays {
-  margin-bottom: 10px;
-}
-.calendar-weekday {
-  text-align: center;
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--text-faint);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: 6px 0;
-}
-.calendar-day {
-  border: 1px solid var(--border);
-  background: white;
-  border-radius: 14px;
-  padding: 12px;
-  min-height: 96px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 10px;
-  cursor: pointer;
-  transition: all 0.15s;
-}
-.calendar-day:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 6px 18px rgba(15,23,42,0.06);
-}
-.calendar-day.other-month {
-  background: var(--bg-subtle);
-  color: var(--text-faint);
-}
-.calendar-day.today {
-  border-color: var(--blue-400);
-}
-.calendar-day.selected {
-  border-color: var(--accent);
-  box-shadow: inset 0 0 0 1px var(--accent);
-  background: #F8FBFF;
-}
-.calendar-day.unavailable {
-  background: #F8FAFC;
-}
-.calendar-day-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 8px;
-}
-.calendar-day-number {
-  font-size: 15px;
-  font-weight: 700;
-}
-.calendar-badge {
-  min-width: 26px;
-  height: 26px;
-  border-radius: 999px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 8px;
-  font-size: 11px;
-  font-weight: 700;
-}
-.calendar-badge.available {
-  background: #DCFCE7;
-  color: #166534;
-}
-.calendar-badge.none {
-  background: var(--slate-100);
-  color: var(--text-muted);
-}
-.calendar-note {
-  font-size: 11px;
-  color: var(--text-muted);
-  line-height: 1.35;
-}
-.calendar-sidebar h3 {
-  font-size: 20px;
-  margin-bottom: 8px;
-}
-.calendar-sidebar p {
-  color: var(--text-muted);
-  font-size: 14px;
-}
-.selected-date-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--accent-light);
-  color: var(--accent-dark);
-  border-radius: 999px;
-  padding: 8px 12px;
-  font-weight: 700;
-  margin: 16px 0;
-}
-.slot-list {
-  display: grid;
-  gap: 10px;
-  margin: 8px 0 18px;
-}
-.slot-chip {
-  width: 100%;
-  border: 1px solid var(--blue-200);
-  background: var(--blue-50);
-  color: var(--blue-800);
-  border-radius: 12px;
-  padding: 12px 14px;
-  text-align: left;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.15s;
-}
-.slot-chip:hover {
-  background: var(--blue-100);
-}
-.slot-chip small {
-  display: block;
-  font-size: 11px;
-  color: var(--text-muted);
-  font-weight: 500;
-  margin-top: 2px;
-}
-.calendar-empty {
-  border: 1px dashed var(--border);
-  background: var(--bg-subtle);
-  color: var(--text-muted);
-  border-radius: 14px;
-  padding: 18px;
-  font-size: 14px;
-}
-.calendar-legend {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-top: 16px;
-}
-.calendar-legend-chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 12px;
-  color: var(--text-muted);
-  padding: 7px 10px;
-  border-radius: 999px;
-  background: var(--bg-subtle);
-  border: 1px solid var(--border);
-}
-.calendar-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-}
-.calendar-tip {
-  margin-top: 14px;
-  background: #F8FAFC;
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 14px;
-  font-size: 13px;
-  color: var(--text-muted);
-}
-
-@media (max-width: 980px) {
   .availability-shell {
-    grid-template-columns: 1fr;
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(300px, 0.9fr);
+    gap: 22px;
+    margin-top: 28px;
   }
-}
-@media (max-width: 620px) {
-  .calendar-weekdays,
-  .calendar-grid {
-    gap: 6px;
+  .calendar-card,
+  .calendar-sidebar {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 22px;
+    box-shadow: 0 4px 24px rgba(37,99,235,0.05);
   }
-  .calendar-day {
-    min-height: 84px;
-    padding: 10px;
+  .calendar-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+  }
+  .calendar-nav {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .calendar-btn {
+    border: 1px solid var(--border);
+    background: white;
+    color: var(--text);
+    border-radius: 10px;
+    padding: 9px 13px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  .calendar-btn:hover {
+    border-color: var(--blue-400);
+    color: var(--accent);
   }
   .calendar-month {
-    font-size: 18px;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
   }
-}
+  .calendar-help {
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+  .calendar-weekdays,
+  .calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 10px;
+  }
+  .calendar-weekdays {
+    margin-bottom: 10px;
+  }
+  .calendar-weekday {
+    text-align: center;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-faint);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 6px 0;
+  }
+  .calendar-day {
+    border: 1px solid var(--border);
+    background: white;
+    border-radius: 14px;
+    padding: 12px;
+    min-height: 96px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .calendar-day:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(15,23,42,0.06);
+  }
+  .calendar-day.other-month {
+    background: var(--bg-subtle);
+    color: var(--text-faint);
+  }
+  .calendar-day.today {
+    border-color: var(--blue-400);
+  }
+  .calendar-day.selected {
+    border-color: var(--accent);
+    box-shadow: inset 0 0 0 1px var(--accent);
+    background: #F8FBFF;
+  }
+  .calendar-day.unavailable {
+    background: #F8FAFC;
+  }
+  .calendar-day-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .calendar-day-number {
+    font-size: 15px;
+    font-weight: 700;
+  }
+  .calendar-badge {
+    min-width: 26px;
+    height: 26px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 8px;
+    font-size: 11px;
+    font-weight: 700;
+  }
+  .calendar-badge.available {
+    background: #DCFCE7;
+    color: #166534;
+  }
+  .calendar-badge.none {
+    background: var(--slate-100);
+    color: var(--text-muted);
+  }
+  .calendar-note {
+    font-size: 11px;
+    color: var(--text-muted);
+    line-height: 1.35;
+  }
+  .calendar-sidebar h3 {
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
+  .calendar-sidebar p {
+    color: var(--text-muted);
+    font-size: 14px;
+  }
+  .selected-date-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent-light);
+    color: var(--accent-dark);
+    border-radius: 999px;
+    padding: 8px 12px;
+    font-weight: 700;
+    margin: 16px 0;
+  }
+  .slot-list {
+    display: grid;
+    gap: 10px;
+    margin: 8px 0 18px;
+  }
+  .slot-chip {
+    width: 100%;
+    border: 1px solid var(--blue-200);
+    background: var(--blue-50);
+    color: var(--blue-800);
+    border-radius: 12px;
+    padding: 12px 14px;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .slot-chip:hover {
+    background: var(--blue-100);
+  }
+  .slot-chip small {
+    display: block;
+    font-size: 11px;
+    color: var(--text-muted);
+    font-weight: 500;
+    margin-top: 2px;
+  }
+  .calendar-empty {
+    border: 1px dashed var(--border);
+    background: var(--bg-subtle);
+    color: var(--text-muted);
+    border-radius: 14px;
+    padding: 18px;
+    font-size: 14px;
+  }
+  .calendar-legend {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+  }
+  .calendar-legend-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--text-muted);
+    padding: 7px 10px;
+    border-radius: 999px;
+    background: var(--bg-subtle);
+    border: 1px solid var(--border);
+  }
+  .calendar-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+  .calendar-tip {
+    margin-top: 14px;
+    background: #F8FAFC;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 14px;
+    font-size: 13px;
+    color: var(--text-muted);
+  }
 
-  /* ── PAGES ── */
   .page { display: none; }
   .page.active { display: block; }
 
-  /* ── HERO ── */
   .hero {
     padding: 80px 5% 72px;
     display: grid; grid-template-columns: 1fr 420px; gap: 60px; align-items: center;
@@ -434,7 +411,6 @@
   .stat-num { font-size: 20px; font-weight: 700; color: var(--text); line-height: 1; }
   .stat-lbl { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
 
-  /* ── SECTIONS ── */
   .section { padding: 64px 5%; border-bottom: 1px solid var(--border); }
   .section:last-of-type { border-bottom: none; }
   .section-header { margin-bottom: 36px; }
@@ -449,7 +425,6 @@
   }
   .section-sub { font-size: 15px; color: var(--text-muted); max-width: 560px; line-height: 1.7; }
 
-  /* ── FEATURE CARDS ── */
   .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
   .feature-card {
     background: var(--bg-subtle);
@@ -470,7 +445,6 @@
   .feature-card h3 { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 8px; }
   .feature-card p { font-size: 13px; color: var(--text-muted); line-height: 1.65; }
 
-  /* ── ANNOUNCEMENTS ── */
   .announce-list { display: flex; flex-direction: column; gap: 12px; }
   .announce-item {
     display: flex; gap: 16px; align-items: flex-start;
@@ -488,7 +462,6 @@
   .announce-body p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
   .announce-date { font-size: 11px; color: var(--text-faint); margin-top: 6px; }
 
-  /* ── VIDEOS PAGE ── */
   .filter-bar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 28px; }
   .filter-btn {
     font-size: 13px; font-weight: 500; padding: 6px 16px;
@@ -499,61 +472,85 @@
   .filter-btn.active { background: var(--accent); color: white; border-color: var(--accent); }
   .filter-btn:hover:not(.active) { border-color: var(--accent); color: var(--accent); }
 
-  .video-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 18px; }
-  .video-card {
-    background: var(--bg); border: 1px solid var(--border);
-    border-radius: var(--radius-lg); overflow: hidden;
-    transition: box-shadow 0.2s, transform 0.2s; cursor: pointer;
+  .video-showcase {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    align-items: start;
   }
-  .video-card:hover { box-shadow: 0 8px 28px rgba(37,99,235,0.12); transform: translateY(-3px); }
-  .video-thumb {
-    height: 140px; display: flex; align-items: center; justify-content: center;
-    position: relative; font-size: 13px; font-weight: 600;
+  .video-item {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
   }
-  .play-circle {
-    width: 46px; height: 46px; border-radius: 50%;
-    background: rgba(255,255,255,0.92); display: flex; align-items: center; justify-content: center;
-    font-size: 18px; position: absolute; transition: transform 0.15s;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+  .video-embed {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    background: #000;
   }
-  .video-card:hover .play-circle { transform: scale(1.1); }
-  .video-meta { padding: 14px 16px 18px; }
+  .video-embed iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: var(--radius-lg);
+    border: 0;
+  }
+  .video-info-box {
+    padding: 18px 20px;
+    background: var(--bg-subtle);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+  }
   .video-tag {
     font-size: 11px; font-weight: 600; padding: 3px 9px;
     border-radius: 20px; display: inline-block; margin-bottom: 8px;
     letter-spacing: 0.03em;
   }
-  .video-meta h4 { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 4px; line-height: 1.3; }
-  .video-meta p { font-size: 12px; color: var(--text-faint); }
-
   .upload-prompt {
     margin-top: 32px; padding: 28px; text-align: center;
     border: 2px dashed var(--blue-200); border-radius: var(--radius-lg);
     background: var(--blue-50);
   }
   .upload-prompt p { font-size: 14px; color: var(--text-muted); margin-bottom: 14px; }
+  .video-request-full {
+    width: 100%;
+    max-width: none;
+    margin-top: 28px;
+  }
 
-  /* ── SCHEDULE ── */
+  .schedule-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
   .schedule-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .schedule-cols.single-col { grid-template-columns: 1fr; }
   .schedule-card {
     background: var(--bg); border: 1px solid var(--border);
     border-radius: var(--radius-lg); padding: 24px;
   }
+  .schedule-card.full-width { width: 100%; }
   .schedule-card-header {
     display: flex; align-items: center; gap: 10px; margin-bottom: 18px;
   }
   .schedule-dot {
     width: 12px; height: 12px; border-radius: 50%;
   }
-  .schedule-card h3 { font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 10px;}
+  .schedule-card h3 { font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 10px; }
   .schedule-row {
     display: flex; justify-content: space-between; align-items: center;
+    gap: 20px;
     padding: 10px 0; border-bottom: 1px solid var(--border);
     font-size: 13px;
   }
   .schedule-row:last-child { border-bottom: none; padding-bottom: 0; }
   .day-label { color: var(--text-muted); font-weight: 500; }
-  .time-label { color: var(--text); font-weight: 600; }
+  .time-label { color: var(--text); font-weight: 600; text-align: right; }
   .mode-badge {
     font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 20px;
     letter-spacing: 0.04em; margin-left: 6px;
@@ -566,15 +563,31 @@
     background: var(--bg-subtle); border: 1px solid var(--border);
     border-radius: var(--radius-lg); padding: 22px;
   }
+  .location-card.zoom-box {
+    text-align: center;
+    max-width: none;
+  }
   .location-card h4 { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 10px; }
   .location-card p { font-size: 13px; color: var(--text-muted); line-height: 1.8; }
 
-  /* ── TUTORS ── */
-  .tutor-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 18px; }
+  .tutor-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    gap: 18px;
+  }
+  .tutor-grid.fixed-row {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+    align-items: stretch;
+  }
   .tutor-card {
     background: var(--bg); border: 1px solid var(--border);
     border-radius: var(--radius-lg); padding: 24px; text-align: center;
     transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .tutor-grid.fixed-row .tutor-card {
+    height: 100%;
+    padding: 20px;
   }
   .tutor-card:hover { box-shadow: 0 6px 24px rgba(37,99,235,0.1); transform: translateY(-2px); }
   .tutor-avatar {
@@ -601,7 +614,10 @@
     font-family: 'DM Serif Display', serif;
     font-size: 24px; color: white; margin-bottom: 10px;
   }
-  .volunteer-banner p { font-size: 14px; color: var(--blue-200); margin-bottom: 22px; max-width: 440px; margin-left: auto; margin-right: auto; }
+  .volunteer-banner p {
+    font-size: 14px; color: var(--blue-200); margin-bottom: 22px;
+    max-width: 440px; margin-left: auto; margin-right: auto;
+  }
   .btn-white {
     background: white; color: var(--accent-dark);
     font-size: 14px; font-weight: 700; padding: 11px 24px;
@@ -610,7 +626,6 @@
   }
   .btn-white:hover { transform: translateY(-1px); box-shadow: 0 4px 14px rgba(0,0,0,0.2); }
 
-  /* ── SIGN UP ── */
   .signup-layout { display: grid; grid-template-columns: 1fr 340px; gap: 48px; align-items: start; }
   .form-card {
     background: var(--bg); border: 1px solid var(--border);
@@ -667,7 +682,6 @@
   .contact-box a { color: var(--accent); font-weight: 600; font-size: 14px; text-decoration: none; }
   .contact-box a:hover { text-decoration: underline; }
 
-  /* ── FOOTER ── */
   footer {
     padding: 28px 5%;
     border-top: 1px solid var(--border);
@@ -684,19 +698,57 @@
   .footer-links a:hover { color: var(--accent); }
   .footer-note { font-size: 12px; color: var(--text-faint); }
 
-  /* ── RESPONSIVE ── */
+  @media (max-width: 980px) {
+    .availability-shell {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .video-showcase,
+    .tutor-grid.fixed-row {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
   @media (max-width: 768px) {
     .nav-links, .nav-cta { display: none; }
     .nav-mobile-toggle { display: block; }
     .hero { grid-template-columns: 1fr; padding: 48px 5%; }
     .hero::before { display: none; }
     .hero-card { display: none; }
-    .schedule-cols, .location-grid, .signup-layout { grid-template-columns: 1fr; }
+    .schedule-cols,
+    .location-grid,
+    .signup-layout,
+    .video-showcase,
+    .tutor-grid.fixed-row {
+      grid-template-columns: 1fr;
+    }
     .form-grid-2 { grid-template-columns: 1fr; }
     .signup-info { order: -1; }
+    .schedule-row {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .time-label {
+      text-align: left;
+    }
   }
 
-  /* ── ANIMATIONS ── */
+  @media (max-width: 620px) {
+    .calendar-weekdays,
+    .calendar-grid {
+      gap: 6px;
+    }
+    .calendar-day {
+      min-height: 84px;
+      padding: 10px;
+    }
+    .calendar-month {
+      font-size: 18px;
+    }
+  }
+
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(16px); }
     to { opacity: 1; transform: translateY(0); }
@@ -727,7 +779,6 @@
   <button class="nav-mobile-toggle" onclick="toggleMobileMenu()">☰</button>
 </nav>
 
-<!-- Mobile menu (hidden by default) -->
 <div id="mobile-menu" style="display:none; background:white; border-bottom:1px solid var(--border); padding:12px 5%;">
   <a onclick="showPage('home');toggleMobileMenu();" style="display:block;padding:10px 0;font-size:15px;font-weight:500;color:var(--text);text-decoration:none;">Home</a>
   <a onclick="showPage('videos');toggleMobileMenu();" style="display:block;padding:10px 0;font-size:15px;font-weight:500;color:var(--text);text-decoration:none;">Videos</a>
@@ -736,7 +787,6 @@
   <a onclick="showPage('signup');toggleMobileMenu();" style="display:block;padding:10px 0;font-size:15px;font-weight:600;color:var(--accent);text-decoration:none;">Sign up free →</a>
 </div>
 
-<!-- ═══════════════════════════ HOME ═══════════════════════════ -->
 <div class="page active" id="page-home">
 
   <div class="hero">
@@ -821,7 +871,6 @@
 
 </div>
 
-<!-- ═══════════════════════════ VIDEOS ═══════════════════════════ -->
 <div class="page" id="page-videos">
   <div class="section">
     <div class="section-header">
@@ -830,39 +879,49 @@
       <p class="section-sub">Topic walkthroughs posted by our tutors. Check it out!</p>
     </div>
 
-    <div style="max-width: 400px;">
-      <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:var(--radius-lg); border:1px solid var(--border); background:#000;">
-        <iframe
-          src="https://www.youtube.com/embed/X67SjyJ-9aY"
-          title="The Silver Spring Math Project — Video"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
-          style="position:absolute; top:0; left:0; width:100%; height:100%; border-radius:var(--radius-lg);">
-        </iframe>
+    <div class="video-showcase">
+      <div class="video-item">
+        <div class="video-embed">
+          <iframe
+            src="https://www.youtube.com/embed/X67SjyJ-9aY"
+            title="Using Algebraic Manipulation to Find the Formula for a Partial Sum"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div class="video-info-box">
+          <span class="video-tag" style="background:#DBEAFE;color:#1E40AF;">The Calculus of Series</span>
+          <h4 style="font-size:16px; font-weight:600; color:var(--text); margin:8px 0 6px;">Using Algebraic Manipulation to Find the Formula for a Partial Sum</h4>
+          <p style="font-size:13px; color:var(--text-muted);">Watch directly above, or <a href="https://youtu.be/X67SjyJ-9aY" target="_blank" style="color:var(--accent); font-weight:600;">open on YouTube</a>.</p>
+          <p style="font-size:13px; color:var(--text-muted);">See a PDF of the drawing board the tutor used here: <a href="UsingAlgebraicManipulationWithPartialSums.pdf" target="_blank">View PDF</a>.</p>
+        </div>
       </div>
-      <div style="margin-top:16px; padding:18px 20px; background:var(--bg-subtle); border:1px solid var(--border); border-radius:var(--radius-lg);">
-        <span class="video-tag" style="background:#DBEAFE;color:#1E40AF;">The Calculus of Series</span>
-        <h4 style="font-size:16px; font-weight:600; color:var(--text); margin:8px 0 6px;">Using Algebraic Manipulation to Find the Formula for a Partial Sum</h4>
-        <p style="font-size:13px; color:var(--text-muted);">Watch directly below, or <a href="https://youtu.be/X67SjyJ-9aY" target="_blank" style="color:var(--accent); font-weight:600;">open on YouTube</a>.</p>
-        <p style="font-size:13px; color:var(--text-muted);">See a PDF of the drawing board the tutor used here: <a href="UsingAlgebraicManipulationWithPartialSums.pdf" target="_blank">View PDF</a>.</p>
+
+      <div class="video-item">
+        <div class="video-embed">
+          <iframe
+            src="https://www.youtube.com/embed/MM0WGesXIdw"
+            title="The Integral Test For Convergence/Divergence - Worked Example"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div class="video-info-box">
+          <span class="video-tag" style="background:#DBEAFE;color:#1E40AF;">The Calculus of Series</span>
+          <h4 style="font-size:16px; font-weight:600; color:var(--text); margin:8px 0 6px;">The Integral Test For Convergence/Divergence - Worked Example</h4>
+          <p style="font-size:13px; color:var(--text-muted);">Watch directly above, or <a href="https://youtu.be/MM0WGesXIdw" target="_blank" style="color:var(--accent); font-weight:600;">open on YouTube</a>.</p>
+          <p style="font-size:13px; color:var(--text-muted);">See a PDF of the drawing board the tutor used here: <a href="IntegralText_WorkedExample.pdf" target="_blank">View PDF</a>.</p>
+        </div>
       </div>
-      <div style="margin-top:16px; padding:18px 20px; background:var(--bg-subtle); border:1px solid var(--border); border-radius:var(--radius-lg);">
-        <span class="video-tag" style="background:#DBEAFE;color:#1E40AF;">The Calculus of Series</span>
-        <h4 style="font-size:16px; font-weight:600; color:var(--text); margin:8px 0 6px;">The Integral Test For Convergence/Divergence - Worked Example</h4>
-        <p style="font-size:13px; color:var(--text-muted);">Watch directly below, or <a href="https://youtu.be/MM0WGesXIdw" target="_blank" style="color:var(--accent); font-weight:600;">open on YouTube</a>.</p>
-        <p style="font-size:13px; color:var(--text-muted);">See a PDF of the drawing board the tutor used here: <a href="IntegralText_WorkedExample.pdf" target="_blank">View PDF</a>.</p>
-      </div>
-  
     </div>
-    <div class="upload-prompt" style="max-width:800px; margin-top:28px;">
+
+    <div class="upload-prompt video-request-full">
       <p>Request a video here!</p>
       <a href="https://docs.google.com/forms/d/e/1FAIpQLSfONYYHXdLyqSUKZLndLz6vg33hvLh5JAHwVOrdkRkMxznB6w/viewform?usp=dialog" class="btn btn-blue">Request form →</a>
     </div>
   </div>
 </div>
 
-<!-- ═══════════════════════════ SCHEDULE ═══════════════════════════ -->
 <div class="page" id="page-schedule">
   <div class="section">
     <div class="section-header">
@@ -871,86 +930,89 @@
       <p class="section-sub">All sessions are free. Just bring your questions.</p>
     </div>
 
-    <div class="schedule-cols">
-      <div class="schedule-card">
-        <div class="schedule-card-header">
-          <div class="schedule-dot" style="background:#2563EB;"></div>
-          <h3>Online sessions</h3>
-        </div>
-        <div class="schedule-row">
-          <span class="day-label">Monday</span>
-          <span class="time-label">7:00-9:00 PM <span class="mode-badge badge-online">Zoom</span></span>
-        </div>
-        <div class="schedule-row">
-          <span class="day-label">Tuesday</span>
-          <span class="time-label">5:00-7:00 PM and 8:00-9:00 PM <span class="mode-badge badge-online">Zoom</span></span>
-        </div>
-        <div class="schedule-row">
-          <span class="day-label">Friday</span>
-          <span class="time-label">7:00–10:00 PM <span class="mode-badge badge-online">Zoom</span></span>
-        </div>
-        <div class="schedule-row">
-          <span class="day-label">Saturday</span>
-          <span class="time-label">9:00 AM–1:00 PM <span class="mode-badge badge-online">Zoom</span></span>
-        </div>
-        <div class="schedule-row">
-          <span class="day-label">Sunday</span>
-          <span class="time-label">10:00 AM–12:00 PM <span class="mode-badge badge-online">Zoom</span></span>
-        </div>
-      </div>
-    </div>
-      <div class="location-card">
+    <div class="schedule-stack">
+      <div class="location-card zoom-box">
         <h4>💻 Online via Zoom</h4>
         <p>
           Sign up to receive the Zoom link by email. Sessions are one-on-one.<br><br>
           You'll receive a confirmation and calendar invite within 24 hours of signing up.
         </p>
       </div>
-    </div>
-  <div class="availability-shell">
-  <div class="calendar-card">
-    <div class="calendar-toolbar">
-      <div class="calendar-nav">
-        <button class="calendar-btn" id="calendarPrev">←</button>
-        <div class="calendar-month" id="calendarMonth"></div>
-        <button class="calendar-btn" id="calendarNext">→</button>
-        <button class="calendar-btn" id="calendarToday">Today</button>
+
+      <div class="schedule-cols single-col">
+        <div class="schedule-card full-width">
+          <div class="schedule-card-header">
+            <div class="schedule-dot" style="background:#2563EB;"></div>
+            <h3>Online sessions</h3>
+          </div>
+          <div class="schedule-row">
+            <span class="day-label">Monday</span>
+            <span class="time-label">7:00-9:00 PM <span class="mode-badge badge-online">Zoom</span></span>
+          </div>
+          <div class="schedule-row">
+            <span class="day-label">Tuesday</span>
+            <span class="time-label">5:00-7:00 PM and 8:00-9:00 PM <span class="mode-badge badge-online">Zoom</span></span>
+          </div>
+          <div class="schedule-row">
+            <span class="day-label">Friday</span>
+            <span class="time-label">7:00–10:00 PM <span class="mode-badge badge-online">Zoom</span></span>
+          </div>
+          <div class="schedule-row">
+            <span class="day-label">Saturday</span>
+            <span class="time-label">9:00 AM–1:00 PM <span class="mode-badge badge-online">Zoom</span></span>
+          </div>
+          <div class="schedule-row">
+            <span class="day-label">Sunday</span>
+            <span class="time-label">10:00 AM–12:00 PM <span class="mode-badge badge-online">Zoom</span></span>
+          </div>
+        </div>
       </div>
-      <div class="calendar-help">Click a date to see open tutoring times.</div>
     </div>
 
-    <div class="calendar-weekdays" id="calendarWeekdays"></div>
-    <div class="calendar-grid" id="calendarGrid"></div>
+    <div class="availability-shell">
+      <div class="calendar-card">
+        <div class="calendar-toolbar">
+          <div class="calendar-nav">
+            <button class="calendar-btn" id="calendarPrev">←</button>
+            <div class="calendar-month" id="calendarMonth"></div>
+            <button class="calendar-btn" id="calendarNext">→</button>
+            <button class="calendar-btn" id="calendarToday">Today</button>
+          </div>
+          <div class="calendar-help">Click a date to see open tutoring times.</div>
+        </div>
 
-    <div class="calendar-legend">
-      <div class="calendar-legend-chip">
-        <span class="calendar-dot" style="background:#DCFCE7; border:1px solid #86efac;"></span>
-        Available slots
+        <div class="calendar-weekdays" id="calendarWeekdays"></div>
+        <div class="calendar-grid" id="calendarGrid"></div>
+
+        <div class="calendar-legend">
+          <div class="calendar-legend-chip">
+            <span class="calendar-dot" style="background:#DCFCE7; border:1px solid #86efac;"></span>
+            Available slots
+          </div>
+          <div class="calendar-legend-chip">
+            <span class="calendar-dot" style="background:var(--accent-light); border:1px solid var(--blue-400);"></span>
+            Selected date
+          </div>
+          <div class="calendar-legend-chip">
+            <span class="calendar-dot" style="background:var(--slate-100); border:1px solid var(--border);"></span>
+            No openings
+          </div>
+        </div>
       </div>
-      <div class="calendar-legend-chip">
-        <span class="calendar-dot" style="background:var(--accent-light); border:1px solid var(--blue-400);"></span>
-        Selected date
-      </div>
-      <div class="calendar-legend-chip">
-        <span class="calendar-dot" style="background:var(--slate-100); border:1px solid var(--border);"></span>
-        No openings
-      </div>
+
+      <aside class="calendar-sidebar">
+        <h3>Availability</h3>
+        <p>Browse upcoming tutoring times. Click a day to see openings.</p>
+        <div class="selected-date-pill" id="selectedDateLabel">Select a date</div>
+        <div id="slotList" class="slot-list"></div>
+        <div class="calendar-tip">
+          Replace the alert in the JavaScript with your Google Form or booking link when you're ready.
+        </div>
+      </aside>
     </div>
   </div>
-  <aside class="calendar-sidebar">
-    <h3>Availability</h3>
-    <p>Browse upcoming tutoring times. Click a day to see openings.</p>
-    <div class="selected-date-pill" id="selectedDateLabel">Select a date</div>
-    <div id="slotList" class="slot-list"></div>
-    <div class="calendar-tip">
-      Replace the alert in the JavaScript with your Google Form or booking link when you're ready.
-    </div>
-  </aside>
-</div>
-  </div>
 </div>
 
-<!-- ═══════════════════════════ TUTORS ═══════════════════════════ -->
 <div class="page" id="page-tutors">
   <div class="section">
     <div class="section-header">
@@ -958,8 +1020,8 @@
       <h2 class="section-title">Meet your tutors</h2>
       <p class="section-sub">All tutors are volunteers — current students, recent grads, and local educators who love math and want to give back.</p>
     </div>
-  
-    <div class="tutor-grid">
+
+    <div class="tutor-grid fixed-row">
       <div class="tutor-card">
         <img src="Reuben_Tutor_Image.jpg" style="width:60px;height:60px;border-radius:50%;object-fit:cover;margin:0 auto 14px;display:block;">
         <h3>Reuben Szuchman</h3>
@@ -969,32 +1031,28 @@
           <span class="subject-tag">Calculus</span>
         </div>
       </div>
-      
+
       <div class="tutor-card">
-        <div class="tutor-avatar" style="background:#EEF2FF;color:#4338CA;">T2</div>
+        <div class="tutor-avatar" style="background:#EEF2FF;color:#4338CA;">IH</div>
         <h3>Ishaan Hanenalli</h3>
         <div class="tutor-role">Blair HS · Class of 2027</div>
-        </div>
       </div>
-    
+
       <div class="tutor-card">
-        <div class="tutor-avatar" style="background:#F0F9FF;color:#0369A1;">T3</div>
+        <div class="tutor-avatar" style="background:#F0F9FF;color:#0369A1;">FW</div>
         <h3>Finn Ward</h3>
         <div class="tutor-role">Blair HS · Class of 2027</div>
-        </div>
       </div>
-  
+
       <div class="tutor-card">
-        <div class="tutor-avatar" style="background:#F0F9FF;color:#0369A1;">T3</div>
+        <div class="tutor-avatar" style="background:#F0F9FF;color:#0369A1;">BS</div>
         <h3>Benjamin Swaluk</h3>
         <div class="tutor-role">Blair HS · Class of 2027</div>
-        </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ═══════════════════════════ SIGN UP ═══════════════════════════ -->
 <div class="page" id="page-signup">
   <div class="section">
     <div class="section-header">
@@ -1005,7 +1063,6 @@
 
     <div class="signup-layout">
       <div class="form-card">
-        https://docs.google.com/forms/d/e/1FAIpQLSfRPysDsLUniuLr1cCEjlbfCpwtqAS9YWANHpKVgi0D3Ro2HQ/viewform
         <div class="form-grid-2">
           <div class="form-row">
             <label>First name</label>
@@ -1053,13 +1110,6 @@
           <textarea placeholder="e.g. I'm struggling with the chain rule and have a test on Friday…"></textarea>
         </div>
 
-        <!-- 
-          TO CONNECT A GOOGLE FORM:
-          1. Create your Google Form at forms.google.com
-          2. Click the eye icon (Preview) to get the form URL
-          3. Replace the href below with that URL
-          Or: make this button submit to a Tally/Google Form via an embed
-        -->
         <a href="YOUR_GOOGLE_FORM_LINK_HERE" target="_blank" class="form-submit" style="display:block;text-align:center;text-decoration:none;">
           Submit request →
         </a>
@@ -1093,7 +1143,6 @@
         </div>
       </div>
     </div>
-
   </div>
 </div>
 
@@ -1135,7 +1184,7 @@ function toggleMobileMenu() {
   m.style.display = m.style.display === 'none' ? 'block' : 'none';
 }
 
-  const weekdayLabels = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+const weekdayLabels = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
 const tutoringTemplates = {
   1: [
@@ -1381,7 +1430,6 @@ function setupCalendar() {
 }
 
 setupCalendar();
-
 </script>
 </body>
 </html>
